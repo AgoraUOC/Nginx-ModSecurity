@@ -1,0 +1,17 @@
+version: '2.0'
+services:
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ./ModSecurity
+    container_name: ModSecurity
+    ports:
+    - "80:80"
+    restart: always
+  drupal:
+    build:
+      dockerfile: Dockerfile
+      context: ./Drupal
+    container_name: drupal
+    ports:
+      - "9000:80"
